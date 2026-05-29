@@ -1,7 +1,7 @@
 # Hibrid - POC
 
 Prova de conceito do sistema Hibrid, voltado a recria de gado leiteiro. O objetivo
-e demonstrar o fluxo proposto na Entrega 5: cadastro de animais e semen, dashboard
+e demonstrar o fluxo proposto nas entregas : cadastro de animais e semen, dashboard
 de producao e a "Analise de Dados", que recomenda o melhor cruzamento entre vaca e
 semen para gerar femeas leiteiras e machos aproveitaveis para corte.
 
