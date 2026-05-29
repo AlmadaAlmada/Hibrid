@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: hibrid-db
+    environment:
+      POSTGRES_DB: hibrid
+      POSTGRES_USER: hibrid
+      POSTGRES_PASSWORD: hibrid
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hibrid -d hibrid"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  app:
+    build: ./backend
+    container_name: hibrid-app
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: hibrid
+      DB_USER: hibrid
+      DB_PASSWORD: hibrid
+    ports:
+      - "8080:8080"
